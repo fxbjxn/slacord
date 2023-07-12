@@ -1,23 +1,21 @@
 <script setup>
-import { RouterLink, RouterView } from 'vue-router'
-import HelloWorld from './components/HelloWorld.vue'
+// import { RouterLink, RouterView } from "vue-router";
+import MessageBox from "./components/MessageBox.vue";
+import MessageList from "./components/MessageList.vue";
 </script>
 
 <template>
-  <header>
-    <img alt="Vue logo" class="logo" src="@/assets/logo.svg" width="125" height="125" />
+  <div class="wrapper">
+    <!-- <MessageList /> -->
+    <MessageBox />
 
-    <div class="wrapper">
-      <HelloWorld msg="You did it!" />
-
-      <nav>
+    <!-- <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
-      </nav>
-    </div>
-  </header>
+      </nav> -->
+  </div>
 
-  <RouterView />
+  <!-- <RouterView /> -->
 </template>
 
 <style scoped>
