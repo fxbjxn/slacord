@@ -1,13 +1,35 @@
 <template>
   <div class="messageBox-wrapper">
     <div class="messageBox">
-      <ul class="messageList">
-        <li v-for="item in messageList" :key="item.id">
+      <v-list class="messageList" lines="two">
+        <v-list-item
+          v-for="item in messageList"
+          :key="item.id"
+          :title="item.title"
+          subtitle="Albert"
+        >
+          {{ item.message }}</v-list-item
+        >
+      </v-list>
+      <!-- <li v-for="item in messageList" :key="item.id">
           {{ item.message }}
         </li>
-      </ul>
-      <textarea v-model="messageValue" style="resize: none"></textarea>
-      <button @click="saveMessage">Wyslij</button>
+      </ul> -->
+      <div class="messageSend">
+        <v-textarea
+          class="textArea"
+          v-model="messageValue"
+          clearable
+          counter
+          label="Send a message"
+          prepend-icon="$vuetify"
+          variant="underlined"
+          no-resize
+        ></v-textarea>
+        <v-btn prepend-icon="$vuetify" variant="tonal" @click="saveMessage"
+          >Wyslij</v-btn
+        >
+      </div>
     </div>
   </div>
 </template>
@@ -19,10 +41,10 @@ export default {
   setup() {
     const messageValue = ref("");
     const messageList = ref([
-      {
-        id: "",
-        message: "",
-      },
+      // {
+      //   id: "",
+      //   message: "Hello",
+      // },
     ]);
 
     const saveMessage = () => {
@@ -45,4 +67,25 @@ export default {
   },
 };
 </script>
-<style scoped></style>
+<style scoped>
+.messageList {
+  background-color: yellow;
+  color: black;
+  min-height: 30px;
+  max-height: 300px;
+  overflow-y: scroll;
+}
+
+.messageList {
+  min-width: 1250px;
+}
+.messageSend {
+  min-width: 400px;
+  max-width: 600px;
+}
+.textArea {
+  margin-top: 10px;
+  resize: none;
+  font-size: 1.2rem;
+}
+</style>

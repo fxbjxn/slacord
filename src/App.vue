@@ -1,40 +1,44 @@
 <script setup>
 // import { RouterLink, RouterView } from "vue-router";
 import MessageBox from "./components/MessageBox.vue";
-import MessageList from "./components/MessageList.vue";
+import HeaderBox from "./components/HeaderBox.vue";
+import ConnectionState from "./components/ConnectionState.vue";
 </script>
 
 <template>
+  <ConnectionState />
+  <nav>THIS SHOULD BE LEFT SIDE</nav>
   <div class="wrapper">
-    <!-- <MessageList /> -->
-    <MessageBox />
-
+    <div class="chat">
+      <HeaderBox />
+      <MessageBox />
+    </div>
     <!-- <nav>
         <RouterLink to="/">Home</RouterLink>
         <RouterLink to="/about">About</RouterLink>
       </nav> -->
   </div>
+  <nav>THIS SHOULD BE RIGHT SIDE</nav>
 
   <!-- <RouterView /> -->
 </template>
 
 <style scoped>
-header {
+nav {
+  background-color: red;
+  max-width: 400px;
+  min-width: 200px;
+}
+.wrapper {
+  padding: 20px;
+}
+
+/* header {
   line-height: 1.5;
   max-height: 100vh;
 }
 
-.logo {
-  display: block;
-  margin: 0 auto 2rem;
-}
 
-nav {
-  width: 100%;
-  font-size: 12px;
-  text-align: center;
-  margin-top: 2rem;
-}
 
 nav a.router-link-exact-active {
   color: var(--color-text);
@@ -71,13 +75,13 @@ nav a:first-of-type {
     flex-wrap: wrap;
   }
 
-  nav {
+  /* nav {
     text-align: left;
     margin-left: -1rem;
     font-size: 1rem;
 
     padding: 1rem 0;
     margin-top: 1rem;
-  }
-}
+  } */
+/* } */
 </style>
